@@ -1,2 +1,2 @@
-# arduino-shell
+# Arduino-shell
 A simple Unix-like shell for your Arduino!
