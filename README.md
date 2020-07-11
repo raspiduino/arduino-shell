@@ -5,7 +5,7 @@ This is a very simple shell I have wrote for my Arduino, and I want to share it 
 In the future, it will supports internet with esp8266 and it can be portable with lcd support! Hope you like it!
 ## Usuage
 Just download the source, open shell.ino with your Arduino IDE and flash it into your Arduino! Or you can also download the pre-compiled .hex file in the releases!
-## Commands list (currently version 1.0.0):
+## Commands list (currently version 1.0.1 - update 11/7/2020):
 - hi --------------------------------- A simple command to say hello (unnecessary, you can remove it if you want)
 - ver -------------------------------- Display the current version
 - help ------------------------------- Display help
