@@ -2,11 +2,12 @@
 
 #include "EEPROMAnything.h"
 
-String version_str = "1.0.0";
+String version_str = "1.0.1";
 String input_str = "";
 int end_command = 0;
 String directory = "/";
 int address_end = 1023; //Default for Arduino UNO
+String clipboard_str = ""; //Clipboard string
 
 //list of command :D
 void exec(); //This is one not command, sorry :(
@@ -22,6 +23,7 @@ void cd();
 String input(); //This is not a command!
 void edit_eeprom();
 void read_eeprom();
+void clipboard();
 
 void exec(String command) {
   int done_exec = 0;
@@ -37,6 +39,7 @@ void exec(String command) {
   if(command == "cd"){cd(); done_exec = 1;}
   if(command == "edit_eeprom"){edit_eeprom(); done_exec = 1;}
   if(command == "read_eeprom"){read_eeprom(); done_exec = 1;}
+  if(command == "clipboard"){clipboard(); done_exec = 1;}
   if(done_exec != 1){
     Serial.println("Error while execute command! You can try again! Maybe there isn't a command like that! If you retry and the command still error, please press reset!");
     Serial.println("Sorry for the usuage of some command, like cd,...");
@@ -57,6 +60,7 @@ void help() {
   Serial.println(version_str);
   Serial.println("You can execute the following commands: ");
   Serial.println("hi    ver   help    sudo    ls    dir   cpu   free_ram    cd    read_eeprom   edit_eeprom");
+  Serial.println("clipboard");
 }
 
 void ls(){
@@ -94,7 +98,7 @@ void cd(){
   Serial.println("Where do you want to go?");
   Serial.print("> ");
   String tmp_directory = input();
-  if(tmp_directory != "/flash" && tmp_directory != "/ram" && tmp_directory != "/eeprom"){
+  if(tmp_directory != "/flash" && tmp_directory != "/eeprom"){
     Serial.println("Invaild directory! Please try again!");  
   } else {
     Serial.println(directory);
@@ -111,6 +115,9 @@ String input(){
       if (incomingByte == -1 | incomingByte == 10 | incomingByte == 13) { // Don't read the empty character like -1, 10 or 13 (enter)
         if (incomingByte == 13) { //If the user press enter
           end_command = 1; //Said that the input was ended
+          if (input_str == "$clipboard"){
+            input_str = clipboard_str; //Support for clipboard  
+          }
           return(input_str);
         }
       } else {
@@ -123,7 +130,7 @@ String input(){
 }
 
 void edit_eeprom(){
-  if(directory != "/flash" && directory != "/ram"){
+  if(directory != "/flash"){
     Serial.println("Which adress do you want to write ?");
     Serial.print("> ");
     String edit_addr_eeprom = input();
@@ -145,7 +152,7 @@ void edit_eeprom(){
 }
 
 void read_eeprom(){
-  if(directory != "/flash" && directory != "/ram"){
+  if(directory != "/flash"){
     Serial.println("Which adress do you want to read ?");
     Serial.print("> ");
     String read_addr_eeprom = input();
@@ -156,5 +163,21 @@ void read_eeprom(){
     Serial.println(read_String(read_addr_eeprom.toInt()));
   } else {
     Serial.println("You cannot use it in /flash and /ram !");  
+  }
+}
+
+void clipboard(){
+  if(directory != "/flash"){
+    Serial.println("Which adress do you want to read to your clipboard?");
+    Serial.print("> ");
+    String clip_addr_eeprom = input();
+    end_command = 0; //Set the end_command back to 0
+    input_str = "";  //Set the string back to "" (empty)
+    Serial.println(clip_addr_eeprom);
+    delay(5);
+    clipboard_str = read_String(clip_addr_eeprom.toInt());
+    Serial.println("Done. Now you can paste it to input by using $clipboard");
+  } else {
+    Serial.println("You cannot use it in /flash!");  
   }
 }
