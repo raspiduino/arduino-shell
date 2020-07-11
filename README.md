@@ -18,4 +18,4 @@ Just download the source, open shell.ino with your Arduino IDE and flash it into
 - edit_eeprom ------------------------ Edit the value in eeprom. It can be a string!
 - clipboard -------------------------- Copy text from eeprom and paste it again in input prompt using $clipboard
 
-###The new version 1.0.2 use fewer 900 bytes of RAM than the 1.0.1!
+### The new version 1.0.2 use fewer 900 bytes of RAM than the 1.0.1!
