@@ -16,3 +16,4 @@ Just download the source, open shell.ino with your Arduino IDE and flash it into
 - cd --------------------------------- Change the current directory. REMEMBER: enter cd first, and then the command will ask you about the directory!
 - read_eeprom ------------------------ Read the value in eeprom. It can be a string!
 - edit_eeprom ------------------------ Edit the value in eeprom. It can be a string!
+- clipboard -------------------------- Copy text from eeprom and paste it again in input prompt using $clipboard
