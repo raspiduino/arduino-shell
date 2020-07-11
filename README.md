@@ -17,3 +17,4 @@ Just download the source, open shell.ino with your Arduino IDE and flash it into
 - read_eeprom ------------------------ Read the value in eeprom. It can be a string!
 - edit_eeprom ------------------------ Edit the value in eeprom. It can be a string!
 - clipboard -------------------------- Copy text from eeprom and paste it again in input prompt using $clipboard
+### A new version which is support assembly code will be release in 20 minutes
