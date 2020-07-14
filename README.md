@@ -2,7 +2,6 @@
 ## A simple Unix-like shell for your Arduino! 
 This is a very simple shell I have wrote for my Arduino, and I want to share it for you. If you like, you can give it a try! Thanks a lot for that :D If you want to add something new or report a bug, feel free to tell me at raspiduinogit@gmail.com
 ### Support Arduino Uno (ATmega328) or some of the other AVR cpus!
-In the future, it will supports internet with esp8266 and it can be portable with lcd support! Hope you like it!
 ## Usuage
 Just download the source, open shell.ino with your Arduino IDE and flash it into your Arduino! Or you can also download the pre-compiled .hex file in the releases!
 ## Commands list (currently version 1.0.2 - update 11/7/2020):
@@ -18,5 +17,4 @@ Just download the source, open shell.ino with your Arduino IDE and flash it into
 - edit_eeprom ------------------------ Edit the value in eeprom. It can be a string!
 - clipboard -------------------------- Copy text from eeprom and paste it again in input prompt using $clipboard
 
-### The new version 1.0.2 use fewer 900 bytes of RAM than the 1.0.1!
-### Comming soon: adding outside eeprom, lcd and keyboard support!
+### Update 14/7/2020: I am sorry to say that I don't have enough time to continue this project. You can keep adding more command to this program if you want to do so, but please edit it on this git. Keep going with the project! Good luck!
