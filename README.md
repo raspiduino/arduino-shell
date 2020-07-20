@@ -17,4 +17,4 @@ Just download the source, open shell.ino with your Arduino IDE and flash it into
 - edit_eeprom ------------------------ Edit the value in eeprom. It can be a string!
 - clipboard -------------------------- Copy text from eeprom and paste it again in input prompt using $clipboard
 
-### A version support nodejs is comming in a few day! Currently the Firmata has support this feature, but I want it to run nodejs code in eeprom! So we are working for it!
+### Project discontinued. I'm very sorry!
