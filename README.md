@@ -17,4 +17,4 @@ Just download the source, open shell.ino with your Arduino IDE and flash it into
 - edit_eeprom ------------------------ Edit the value in eeprom. It can be a string!
 - clipboard -------------------------- Copy text from eeprom and paste it again in input prompt using $clipboard
 
-### Project discontinued. I'm very sorry!
+### Project discontinued. I'm very sorry! You can use something like Bitlash at https://github.com/billroy/bitlash
